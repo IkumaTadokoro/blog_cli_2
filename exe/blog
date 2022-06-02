@@ -2,3 +2,5 @@
 # frozen_string_literal: true
 
 require "blog_cli_2"
+
+BlogCli2::CLI.start
