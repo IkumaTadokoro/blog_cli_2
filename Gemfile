@@ -2,16 +2,20 @@
 
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in blog_cli_2.gemspec
+# Specify your gem's dependencies in blog.gemspec
 gemspec
 
-gem "aruba"
-
+gem "launchy"
 gem "rake", "~> 13.0"
+gem "thor"
 
-gem "rspec", "~> 3.0"
+group :development do
+  gem "rubocop", "~> 1.21"
+  gem "rubocop-rake"
+  gem "rubocop-rspec"
+end
 
-gem "rubocop", "~> 1.21"
-gem "rubocop-rake"
-gem "rubocop-rspec"
-gem 'aruba', '~> 2.1.0'
+group :test do
+  gem "aruba", "~> 2.1.0"
+  gem "rspec", "~> 3.0"
+end
