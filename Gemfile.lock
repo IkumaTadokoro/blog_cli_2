@@ -88,6 +88,7 @@ GEM
     rubocop-rspec (2.11.1)
       rubocop (~> 1.19)
     ruby-progressbar (1.11.0)
+    ruby_matter (0.9.8)
     sys-uname (1.2.2)
       ffi (~> 1.1)
     thor (1.2.1)
@@ -106,6 +107,7 @@ DEPENDENCIES
   rubocop (~> 1.21)
   rubocop-rake
   rubocop-rspec
+  ruby_matter
   thor
   timecop
 

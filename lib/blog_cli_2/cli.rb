@@ -3,6 +3,7 @@
 require "thor"
 require "launchy"
 require "blog_cli_2"
+require "blog_cli_2/article"
 
 module BlogCli2
   class CLI < Thor
@@ -25,6 +26,20 @@ module BlogCli2
       content = options[:title] ? header(title: options[:title]) : header
       File.write("#{BLOG_PATH}/#{article}.md", content)
       system("#{options[:editor]} #{BLOG_PATH}/#{article}.md")
+    end
+
+    desc "list", "Display last 5 articles"
+    option "all", aliases: "-a", desc: "Show all articles"
+    def list
+      check_blog_path
+      limit = options[:all] ? -1 : 5
+      articles = Dir
+                 .glob("#{BLOG_PATH}/*.md")
+                 .map { |path| Article.new(path) }
+                 .sort_by(&:published_at)
+                 .reverse[0...limit]
+                 .map { |article| [article.basename, article.title, article.published_at].join("\n   ├──") }
+      puts articles
     end
 
     private
