@@ -91,6 +91,7 @@ GEM
     sys-uname (1.2.2)
       ffi (~> 1.1)
     thor (1.2.1)
+    timecop (0.9.5)
     unicode-display_width (2.1.0)
 
 PLATFORMS
@@ -106,6 +107,7 @@ DEPENDENCIES
   rubocop-rake
   rubocop-rspec
   thor
+  timecop
 
 BUNDLED WITH
    2.3.7
